@@ -56,6 +56,9 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="72v-2J-ElR">
                                                 <rect key="frame" x="53" y="0.0" width="267" height="31"/>
+                                                <connections>
+                                                    <action selector="sliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="qz3-UK-r9g"/>
+                                                </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60초" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCJ-Ms-D7b">
                                                 <rect key="frame" x="328" y="0.0" width="45" height="30"/>
@@ -91,6 +94,9 @@
                                         <state key="normal" title="RESET">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="resetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WJv-Qu-sVJ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpi-nN-w5f">
                                         <rect key="frame" x="194" y="0.0" width="179" height="50"/>
@@ -100,6 +106,9 @@
                                         <state key="normal" title="START">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rTl-75-7ao"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -115,6 +124,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rHW-Zj-D1b" secondAttribute="bottom" constant="30" id="ygu-wI-AlJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mainLabel" destination="Ezy-GI-Lzl" id="kxf-xq-oPo"/>
+                        <outlet property="slider" destination="72v-2J-ElR" id="Ak0-vF-uSZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
