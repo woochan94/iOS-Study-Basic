@@ -24,6 +24,7 @@
 		DDDB6C382B18B605005DDBFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDDB6C3B2B18B605005DDBFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDDB6C3D2B18B605005DDBFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDEF112D2B1A1D5100296E7B /* DelegatePattern.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DelegatePattern.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 		DDDB6C232B18B604005DDBFB = {
 			isa = PBXGroup;
 			children = (
+				DDEF112D2B1A1D5100296E7B /* DelegatePattern.playground */,
 				DDDB6C2E2B18B604005DDBFB /* TextFieldProject */,
 				DDDB6C2D2B18B604005DDBFB /* Products */,
 			);
