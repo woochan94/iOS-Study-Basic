@@ -9,8 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let emailTextFieldView = UIView()
-
+    let emailTextFieldView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.darkGray
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,8 +24,6 @@ class ViewController: UIViewController {
     func makeUI() {
         view.addSubview(emailTextFieldView)
         
-        emailTextFieldView.backgroundColor = UIColor.darkGray
-        
         // autoLayout 설정
         emailTextFieldView.translatesAutoresizingMaskIntoConstraints = false
         emailTextFieldView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30.0).isActive = true
@@ -29,7 +31,7 @@ class ViewController: UIViewController {
         emailTextFieldView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
         emailTextFieldView.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
-
-
+    
+    
 }
 
