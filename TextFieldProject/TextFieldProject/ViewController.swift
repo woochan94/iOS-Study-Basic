@@ -30,42 +30,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         button.layer.cornerRadius = 5
     }
     
-    // 텍스트 필드의 입력을 시작할때 호출 (시작이 가능할지 여부 판단)
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        print(#function)
-        return true
-    }
-    
-    // 텍스트 필드의 입력을 시작할때 호출
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print(#function)
-        print("텍스트 필드 값 입력")
-    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print("\(#function): \(string)")
-        return true
+        guard let prevText = textField.text else { return true }
+        let currentLength = prevText.count + string.count
+        return currentLength <= 10
     }
-    
-    // 텍스트 필드의 리턴키가 허용할지 여부 판단
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print(#function)
-        return true
-    }
-    
-    // 텍스트 필드의 입력이 끝날 때 호출 (끝낼지 여부 판단)
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        print(#function)
-        return true
-    }
-    
-    // 텍스트 필드의 입력이 끝났을 때 호출
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        print(#function)
-    }
-    
-
-    
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
         
