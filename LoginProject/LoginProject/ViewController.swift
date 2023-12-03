@@ -78,11 +78,12 @@ class ViewController: UIViewController {
         return tf
     }()
     
-    private let passwordSecureButton: UIButton = {
+    private lazy var passwordSecureButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("표시", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 14, weight: .light)
+        button.addTarget(self, action: #selector(passwordSecureModeSetting), for: .touchUpInside)
         return button
     }()
     
@@ -185,6 +186,11 @@ class ViewController: UIViewController {
         alert.addAction(cancel)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func passwordSecureModeSetting() {
+//        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+        passwordTextField.isSecureTextEntry.toggle()
     }
     
     
