@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     private let textViewHeight: CGFloat = 48
     
@@ -44,6 +44,7 @@ class ViewController: UIViewController {
         tf.autocorrectionType = .no
         tf.spellCheckingType = .no
         tf.keyboardType = .emailAddress
+        tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
@@ -67,7 +68,7 @@ class ViewController: UIViewController {
         return label
     }()
     
-    private let passwordTextField: UITextField = {
+    private lazy var passwordTextField: UITextField = {
         let tf = UITextField()
         tf.backgroundColor = .darkGray
         tf.frame.size.height = 48
@@ -79,6 +80,7 @@ class ViewController: UIViewController {
         tf.spellCheckingType = .no
         tf.isSecureTextEntry = true
         tf.clearsOnBeginEditing = false
+        tf.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         return tf
     }()
     
@@ -91,7 +93,7 @@ class ViewController: UIViewController {
         return button
     }()
     
-    private let loginButton: UIButton = {
+    private lazy var loginButton: UIButton = {
         let button = UIButton(type: .custom)
         button.backgroundColor = .clear
         button.layer.cornerRadius = 5
@@ -100,6 +102,7 @@ class ViewController: UIViewController {
         button.setTitle("로그인", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.isEnabled = false
+        button.addTarget(self, action: #selector(loginButonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -200,6 +203,13 @@ class ViewController: UIViewController {
         passwordTextField.isSecureTextEntry.toggle()
     }
     
+    @objc func loginButonPressed() {
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
 }
 
@@ -246,5 +256,22 @@ extension ViewController: UITextFieldDelegate {
         UIView.animate(withDuration: 0.3) {
             self.stackView.layoutIfNeeded()
         }
+    }
+    
+    @objc func textFieldEditingChanged(_ textField: UITextField) {
+        if textField.text?.count == 1 {
+            if textField.text?.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        
+        guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            loginButton.backgroundColor = .clear
+            loginButton.isEnabled = false
+            return
+        }
+        loginButton.backgroundColor = .red
+        loginButton.isEnabled = true
     }
 }
