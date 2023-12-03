@@ -107,6 +107,14 @@ class ViewController: UIViewController {
         return stackView
     }()
     
+    private let passwordResetButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        button.setTitle("비밀번호 재설정", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -116,6 +124,7 @@ class ViewController: UIViewController {
     func makeUI() {
         view.backgroundColor = .black
         view.addSubview(stackView)
+        view.addSubview(passwordResetButton)
         
         emailInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -123,6 +132,7 @@ class ViewController: UIViewController {
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordSecureButton.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        passwordResetButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             emailInfoLabel.leadingAnchor.constraint(equalTo: emailTextFieldView.leadingAnchor, constant: 8),
@@ -150,7 +160,12 @@ class ViewController: UIViewController {
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            
+            passwordResetButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
+            passwordResetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            passwordResetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            passwordResetButton.heightAnchor.constraint(equalToConstant: textViewHeight)
         ])
         
     }
