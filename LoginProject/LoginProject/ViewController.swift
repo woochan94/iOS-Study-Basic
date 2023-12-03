@@ -107,11 +107,12 @@ class ViewController: UIViewController {
         return stackView
     }()
     
-    private let passwordResetButton: UIButton = {
+    private lazy var passwordResetButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
         button.setTitle("비밀번호 재설정", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
+        button.addTarget(self, action: #selector(resetButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -167,7 +168,23 @@ class ViewController: UIViewController {
             passwordResetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             passwordResetButton.heightAnchor.constraint(equalToConstant: textViewHeight)
         ])
+    }
+    
+    @objc func resetButtonPressed() {
+        let alert = UIAlertController(title: "비밀번호 바꾸기", message: "비밀번호를 바꾸시겠습니까?", preferredStyle: .alert)
         
+        let success = UIAlertAction(title: "확인", style: .default) { action in
+            print("확인")
+        }
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel) { action in
+            print("취소")
+        }
+        
+        alert.addAction(success)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     
