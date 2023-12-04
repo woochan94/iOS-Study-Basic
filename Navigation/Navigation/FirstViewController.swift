@@ -11,7 +11,6 @@ class FirstViewController: UIViewController {
     
     private let mainLabel: UILabel = {
         let label = UILabel()
-        label.text = "FirstViewController"
         label.font = .systemFont(ofSize: 22)
         return label
     }()
@@ -26,6 +25,8 @@ class FirstViewController: UIViewController {
         return button
     }()
     
+    var passedString: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +35,7 @@ class FirstViewController: UIViewController {
     
     func configureUI() {
         view.backgroundColor = .gray
+        mainLabel.text = passedString
         
         view.addSubview(mainLabel)
         view.addSubview(backButton)
@@ -53,7 +55,7 @@ class FirstViewController: UIViewController {
     }
     
     @objc func backButtonPressed() {
-        
+        dismiss(animated: true)
     }
     
 }
