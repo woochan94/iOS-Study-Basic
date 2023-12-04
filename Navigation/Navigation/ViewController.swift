@@ -11,13 +11,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func codeNextButtonPressed(_ sender: UIButton) {
-        
+        let firstVC = FirstViewController()
+        firstVC.modalPresentationStyle = .fullScreen
+        present(firstVC, animated: true)
     }
-    
     
     @IBAction func storyboardWithCodeButonPressed(_ sender: UIButton) {
         
