@@ -44,6 +44,17 @@ class ViewController: UIViewController {
             
             thirdVC.passedSring = "Hello, Apple!"
         }
+        
+        if segue.identifier == "toFourthVC" {
+            let fourthVC = segue.destination as! FourthViewController
+            
+            fourthVC.passedString = "Hello, Swift!"
+        }
+    }
+    
+    // 버튼에서 직접 segue를 연결했을때만 shouldPerformSegue가 실행됨 
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return false
     }
     
 }

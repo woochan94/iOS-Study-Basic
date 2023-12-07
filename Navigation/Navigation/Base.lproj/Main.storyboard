@@ -61,7 +61,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="3FK-P5-jMm" kind="presentation" identifier="toFourthVC" id="hGp-BQ-eTM"/>
+                                            <segue destination="3FK-P5-jMm" kind="presentation" identifier="toFourthVC" id="f2a-BF-YU4"/>
                                         </connections>
                                     </button>
                                 </subviews>
