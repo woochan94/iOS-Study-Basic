@@ -28,7 +28,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func storyboardWithCodeButonPressed(_ sender: UIButton) {
+        let secondVC = storyboard?.instantiateViewController(withIdentifier: "secondVC") as! SecondViewController
+        secondVC.passedString = "iOS 프로그래밍!"
         
+        present(secondVC, animated: true)
     }
     
     @IBAction func storyboardWithSegueButtonPressed(_ sender: UIButton) {
