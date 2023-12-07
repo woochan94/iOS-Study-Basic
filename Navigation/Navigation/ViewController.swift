@@ -35,7 +35,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func storyboardWithSegueButtonPressed(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: "toThirdVC", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toThirdVC" {
+            let thirdVC = segue.destination as! ThirdViewController
+            
+            thirdVC.passedSring = "Hello, Apple!"
+        }
     }
     
 }

@@ -11,11 +11,15 @@ class ThirdViewController: UIViewController {
     
     @IBOutlet weak var mainLabel: UILabel!
     
+    var passedSring: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mainLabel.text = passedSring
     }
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
-        
+        dismiss(animated: true)
     }
 }
