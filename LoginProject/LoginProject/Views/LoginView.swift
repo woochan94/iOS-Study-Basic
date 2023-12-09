@@ -1,19 +1,13 @@
 //
-//  ViewController.swift
+//  LoginView.swift
 //  LoginProject
 //
-//  Created by 정우찬 on 2023/12/02.
+//  Created by Woochan Jeong on 2023/12/09.
 //
 
 import UIKit
 
-final class ViewController: UIViewController {
-    
-    private let textViewHeight: CGFloat = 48
-    
-    // 동적으로 오토레이아웃을 설정하기 위해 변수로 지정
-    lazy var emailInfoLabelCenterYConstraint = emailInfoLabel.centerYAnchor.constraint(equalTo: emailTextFieldView.centerYAnchor)
-    lazy var passwordInfoLabelCenterYConstraint = passwordInfoLabel.centerYAnchor.constraint(equalTo: passwordTextFieldView.centerYAnchor)
+class LoginView: UIView {
     
     private lazy var emailTextFieldView: UIView = {
         let view = UIView()
@@ -93,7 +87,7 @@ final class ViewController: UIViewController {
         return button
     }()
     
-    private lazy var loginButton: UIButton = {
+    lazy var loginButton: UIButton = {
         let button = UIButton(type: .custom)
         button.backgroundColor = .clear
         button.layer.cornerRadius = 5
@@ -102,7 +96,6 @@ final class ViewController: UIViewController {
         button.setTitle("로그인", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.isEnabled = false
-        button.addTarget(self, action: #selector(loginButonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -115,17 +108,22 @@ final class ViewController: UIViewController {
         return stackView
     }()
     
-    private lazy var passwordResetButton: UIButton = {
+    lazy var passwordResetButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .clear
         button.setTitle("비밀번호 재설정", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.addTarget(self, action: #selector(resetButtonPressed), for: .touchUpInside)
         return button
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private let textViewHeight: CGFloat = 48
+    
+    // 동적으로 오토레이아웃을 설정하기 위해 변수로 지정
+    lazy var emailInfoLabelCenterYConstraint = emailInfoLabel.centerYAnchor.constraint(equalTo: emailTextFieldView.centerYAnchor)
+    lazy var passwordInfoLabelCenterYConstraint = passwordInfoLabel.centerYAnchor.constraint(equalTo: passwordTextFieldView.centerYAnchor)
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -133,10 +131,14 @@ final class ViewController: UIViewController {
         makeUI()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func makeUI() {
-        view.backgroundColor = .black
-        view.addSubview(stackView)
-        view.addSubview(passwordResetButton)
+        backgroundColor = .black
+        addSubview(stackView)
+        addSubview(passwordResetButton)
         
         emailInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -169,52 +171,29 @@ final class ViewController: UIViewController {
             passwordSecureButton.bottomAnchor.constraint(equalTo: passwordTextFieldView.bottomAnchor, constant: -15),
             passwordSecureButton.trailingAnchor.constraint(equalTo: passwordTextFieldView.trailingAnchor, constant: -8),
             
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
             
             passwordResetButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10),
-            passwordResetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            passwordResetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            passwordResetButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            passwordResetButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
             passwordResetButton.heightAnchor.constraint(equalToConstant: textViewHeight)
         ])
     }
     
-    @objc func resetButtonPressed() {
-        let alert = UIAlertController(title: "비밀번호 바꾸기", message: "비밀번호를 바꾸시겠습니까?", preferredStyle: .alert)
-        
-        let success = UIAlertAction(title: "확인", style: .default) { action in
-            print("확인")
-        }
-        
-        let cancel = UIAlertAction(title: "취소", style: .cancel) { action in
-            print("취소")
-        }
-        
-        alert.addAction(success)
-        alert.addAction(cancel)
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
     @objc func passwordSecureModeSetting() {
-//        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+        //        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
         passwordTextField.isSecureTextEntry.toggle()
     }
     
-    @objc func loginButonPressed() {
-        
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        self.endEditing(true)
     }
-    
 }
 
-// TextField 관련 메서드를 분리시키기 위해 extension 이용
-extension ViewController: UITextFieldDelegate {
+extension LoginView: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == emailTextField {
             emailTextFieldView.backgroundColor = .gray

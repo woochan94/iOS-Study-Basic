@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DDB01CF72B2474C0008EC4D3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB01CF62B2474C0008EC4D3 /* LoginView.swift */; };
 		DDEF113B2B1A334900296E7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF113A2B1A334900296E7B /* AppDelegate.swift */; };
 		DDEF113D2B1A334900296E7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF113C2B1A334900296E7B /* SceneDelegate.swift */; };
 		DDEF113F2B1A334900296E7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEF113E2B1A334900296E7B /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DDB01CF62B2474C0008EC4D3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DDEF11372B1A334900296E7B /* LoginProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDEF113A2B1A334900296E7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDEF113C2B1A334900296E7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DDB01CF42B247486008EC4D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DDB01CF62B2474C0008EC4D3 /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DDB01CF52B247496008EC4D3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DDEF113E2B1A334900296E7B /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		DDEF112E2B1A334900296E7B = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +74,10 @@
 		DDEF11392B1A334900296E7B /* LoginProject */ = {
 			isa = PBXGroup;
 			children = (
+				DDB01CF52B247496008EC4D3 /* Controllers */,
+				DDB01CF42B247486008EC4D3 /* Views */,
 				DDEF113A2B1A334900296E7B /* AppDelegate.swift */,
 				DDEF113C2B1A334900296E7B /* SceneDelegate.swift */,
-				DDEF113E2B1A334900296E7B /* ViewController.swift */,
 				DDEF11402B1A334900296E7B /* Main.storyboard */,
 				DDEF11432B1A334B00296E7B /* Assets.xcassets */,
 				DDEF11452B1A334B00296E7B /* LaunchScreen.storyboard */,
@@ -140,6 +159,7 @@
 			files = (
 				DDEF113F2B1A334900296E7B /* ViewController.swift in Sources */,
 				DDEF113B2B1A334900296E7B /* AppDelegate.swift in Sources */,
+				DDB01CF72B2474C0008EC4D3 /* LoginView.swift in Sources */,
 				DDEF113D2B1A334900296E7B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
