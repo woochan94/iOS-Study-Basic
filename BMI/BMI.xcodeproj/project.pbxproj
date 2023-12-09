@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DDB01CF32B24582D008EC4D3 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB01CF22B24582D008EC4D3 /* ResultViewController.swift */; };
 		DDCE0ECA2B220DD800E2000B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE0EC92B220DD800E2000B /* AppDelegate.swift */; };
 		DDCE0ECC2B220DD800E2000B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE0ECB2B220DD800E2000B /* SceneDelegate.swift */; };
 		DDCE0ECE2B220DD800E2000B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE0ECD2B220DD800E2000B /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DDB01CF22B24582D008EC4D3 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		DDCE0EC62B220DD800E2000B /* BMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDCE0EC92B220DD800E2000B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDCE0ECB2B220DD800E2000B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				DDCE0EC92B220DD800E2000B /* AppDelegate.swift */,
 				DDCE0ECB2B220DD800E2000B /* SceneDelegate.swift */,
 				DDCE0ECD2B220DD800E2000B /* ViewController.swift */,
+				DDB01CF22B24582D008EC4D3 /* ResultViewController.swift */,
 				DDCE0ECF2B220DD800E2000B /* Main.storyboard */,
 				DDCE0ED22B220DD900E2000B /* Assets.xcassets */,
 				DDCE0ED42B220DD900E2000B /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				DDCE0ECE2B220DD800E2000B /* ViewController.swift in Sources */,
 				DDCE0ECA2B220DD800E2000B /* AppDelegate.swift in Sources */,
 				DDCE0ECC2B220DD800E2000B /* SceneDelegate.swift in Sources */,
+				DDB01CF32B24582D008EC4D3 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
