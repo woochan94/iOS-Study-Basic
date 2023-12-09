@@ -53,6 +53,10 @@ class ResultViewController: UIViewController {
         return button
     }()
     
+    var result: Double?
+    var backgroundColor: UIColor?
+    var advice: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,6 +68,18 @@ class ResultViewController: UIViewController {
         
         view.addSubview(mainStackView)
         view.addSubview(retryButton)
+        
+        if let result = self.result {
+            resultValueLabel.text = String(result)
+        }
+        
+        if let backgroundColor = self.backgroundColor {
+            resultValueLabel.backgroundColor = backgroundColor
+        }
+        
+        if let advice = self.advice {
+            subTitleLabel.text = advice
+        }
         
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
         retryButton.translatesAutoresizingMaskIntoConstraints = false 
