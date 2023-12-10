@@ -1,13 +1,13 @@
 //
-//  ResultViewController.swift
+//  BMIResultView.swift
 //  BMI
 //
-//  Created by Woochan Jeong on 2023/12/09.
+//  Created by Woochan Jeong on 2023/12/10.
 //
 
 import UIKit
 
-class ResultViewController: UIViewController {
+class BMIResultView: UIView {
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -42,64 +42,47 @@ class ResultViewController: UIViewController {
         return stackView
     }()
     
-    private lazy var retryButton: UIButton = {
-       let button = UIButton()
+    public lazy var retryButton: UIButton = {
+        let button = UIButton()
         button.backgroundColor = .link
         button.setTitle("다시 계산하기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 15)
         button.layer.cornerRadius = 8
-        button.addTarget(self, action: #selector(retryButtonPressed), for: .touchUpInside)
         return button
     }()
     
-    var result: Double?
-    var backgroundColor: UIColor?
-    var advice: String?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         configurateUI()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func configurateUI() {
-        view.backgroundColor = .gray
+        self.backgroundColor = .gray
         
-        view.addSubview(mainStackView)
-        view.addSubview(retryButton)
-        
-        if let result = self.result {
-            resultValueLabel.text = String(result)
-        }
-        
-        if let backgroundColor = self.backgroundColor {
-            resultValueLabel.backgroundColor = backgroundColor
-        }
-        
-        if let advice = self.advice {
-            subTitleLabel.text = advice
-        }
+        self.addSubview(mainStackView)
+        self.addSubview(retryButton)        
         
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        retryButton.translatesAutoresizingMaskIntoConstraints = false 
+        retryButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             mainStackView.widthAnchor.constraint(equalToConstant: 200),
-            mainStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 130),
-            mainStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mainStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 130),
+            mainStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             resultValueLabel.heightAnchor.constraint(equalToConstant: 50),
             
-            retryButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
-            retryButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            retryButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            retryButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -30),
+            retryButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            retryButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             retryButton.heightAnchor.constraint(equalToConstant: 45),
         ])
-    }
-    
-    @objc func retryButtonPressed() {
-        dismiss(animated: true)
     }
     
 }
