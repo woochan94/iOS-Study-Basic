@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     private let bmiCalculateView = BMICalculateView()
-    private let bmiManager = BMICalculateManager()
+    private var bmiManager = BMICalculateManager()
     
     override func loadView() {
         view = bmiCalculateView
@@ -35,11 +35,7 @@ class ViewController: UIViewController {
         
         let resultViewController = ResultViewController()
         resultViewController.modalPresentationStyle = .fullScreen
-        
-        let bmi = bmiManager.calculateBMI(height: bmiCalculateView.heightTextField.text!, weight: bmiCalculateView.weightTextField.text!)
-        resultViewController.result = bmi
-        resultViewController.backgroundColor = bmiManager.getBackgroundColor(bmi: bmi)
-        resultViewController.advice = bmiManager.getBMIAdviceString(bmi: bmi)
+        resultViewController.bmi = bmiManager.getBMI(height: bmiCalculateView.heightTextField.text!, weight: bmiCalculateView.weightTextField.text!)
         
         present(resultViewController, animated: true)
         

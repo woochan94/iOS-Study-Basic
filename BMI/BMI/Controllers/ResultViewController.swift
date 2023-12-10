@@ -9,9 +9,7 @@ import UIKit
 
 class ResultViewController: UIViewController {
     
-    var result: Double?
-    var backgroundColor: UIColor?
-    var advice: String?
+    var bmi: BMI?
     private let resultView = BMIResultView()
     
     override func loadView() {
@@ -30,16 +28,10 @@ class ResultViewController: UIViewController {
     }
     
     func setupValue() {
-        if let result = self.result {
-            resultView.resultValueLabel.text = String(result)
-        }
-        
-        if let backgroundColor = self.backgroundColor {
-            resultView.resultValueLabel.backgroundColor = backgroundColor
-        }
-        
-        if let advice = self.advice {
-            resultView.subTitleLabel.text = advice
+        if let model = self.bmi {
+            resultView.resultValueLabel.text = String(model.value)
+            resultView.resultValueLabel.backgroundColor = model.matchColor
+            resultView.subTitleLabel.text = model.advice
         }
     }
     

@@ -10,6 +10,7 @@
 		DD350CC32B25E5E800B4B2DB /* BMICalculateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD350CC22B25E5E700B4B2DB /* BMICalculateManager.swift */; };
 		DD350CC52B25E65A00B4B2DB /* BMICalculateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD350CC42B25E65A00B4B2DB /* BMICalculateView.swift */; };
 		DD350CC72B25E66E00B4B2DB /* BMIResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD350CC62B25E66E00B4B2DB /* BMIResultView.swift */; };
+		DD350CCB2B25F4CD00B4B2DB /* BMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD350CCA2B25F4CD00B4B2DB /* BMI.swift */; };
 		DDB01CF32B24582D008EC4D3 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB01CF22B24582D008EC4D3 /* ResultViewController.swift */; };
 		DDCE0ECA2B220DD800E2000B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE0EC92B220DD800E2000B /* AppDelegate.swift */; };
 		DDCE0ECC2B220DD800E2000B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE0ECB2B220DD800E2000B /* SceneDelegate.swift */; };
@@ -23,6 +24,7 @@
 		DD350CC22B25E5E700B4B2DB /* BMICalculateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMICalculateManager.swift; sourceTree = "<group>"; };
 		DD350CC42B25E65A00B4B2DB /* BMICalculateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMICalculateView.swift; sourceTree = "<group>"; };
 		DD350CC62B25E66E00B4B2DB /* BMIResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIResultView.swift; sourceTree = "<group>"; };
+		DD350CCA2B25F4CD00B4B2DB /* BMI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMI.swift; sourceTree = "<group>"; };
 		DDB01CF22B24582D008EC4D3 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		DDCE0EC62B220DD800E2000B /* BMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDCE0EC92B220DD800E2000B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 		DD350CBF2B25E4D700B4B2DB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DD350CCA2B25F4CD00B4B2DB /* BMI.swift */,
 				DD350CC22B25E5E700B4B2DB /* BMICalculateManager.swift */,
 			);
 			path = Models;
@@ -178,6 +181,7 @@
 				DDCE0ECA2B220DD800E2000B /* AppDelegate.swift in Sources */,
 				DD350CC52B25E65A00B4B2DB /* BMICalculateView.swift in Sources */,
 				DDCE0ECC2B220DD800E2000B /* SceneDelegate.swift in Sources */,
+				DD350CCB2B25F4CD00B4B2DB /* BMI.swift in Sources */,
 				DDB01CF32B24582D008EC4D3 /* ResultViewController.swift in Sources */,
 				DD350CC72B25E66E00B4B2DB /* BMIResultView.swift in Sources */,
 				DD350CC32B25E5E800B4B2DB /* BMICalculateManager.swift in Sources */,
