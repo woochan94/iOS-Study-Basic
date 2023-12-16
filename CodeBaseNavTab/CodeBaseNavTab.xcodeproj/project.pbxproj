@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0806BC2B2DE8980081715F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0806BB2B2DE8980081715F /* FirstViewController.swift */; };
+		DD0806BE2B2DE8A70081715F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0806BD2B2DE8A70081715F /* SecondViewController.swift */; };
+		DD0806C02B2DE8B40081715F /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0806BF2B2DE8B40081715F /* ThirdViewController.swift */; };
+		DD0806C22B2DE8C00081715F /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0806C12B2DE8C00081715F /* FourthViewController.swift */; };
+		DD0806C42B2DE8D20081715F /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0806C32B2DE8D20081715F /* FifthViewController.swift */; };
+		DD0806C62B2DEE540081715F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0806C52B2DEE540081715F /* LoginViewController.swift */; };
 		DDCAEBE32B28A3CA008C8068 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAEBE22B28A3CA008C8068 /* AppDelegate.swift */; };
 		DDCAEBE52B28A3CA008C8068 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAEBE42B28A3CA008C8068 /* SceneDelegate.swift */; };
 		DDCAEBE72B28A3CA008C8068 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAEBE62B28A3CA008C8068 /* ViewController.swift */; };
@@ -16,6 +22,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD0806BB2B2DE8980081715F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		DD0806BD2B2DE8A70081715F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		DD0806BF2B2DE8B40081715F /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		DD0806C12B2DE8C00081715F /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		DD0806C32B2DE8D20081715F /* FifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
+		DD0806C52B2DEE540081715F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DDCAEBDF2B28A3CA008C8068 /* CodeBaseNavTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeBaseNavTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDCAEBE22B28A3CA008C8068 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDCAEBE42B28A3CA008C8068 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +71,12 @@
 				DDCAEBE22B28A3CA008C8068 /* AppDelegate.swift */,
 				DDCAEBE42B28A3CA008C8068 /* SceneDelegate.swift */,
 				DDCAEBE62B28A3CA008C8068 /* ViewController.swift */,
+				DD0806C52B2DEE540081715F /* LoginViewController.swift */,
+				DD0806BB2B2DE8980081715F /* FirstViewController.swift */,
+				DD0806BD2B2DE8A70081715F /* SecondViewController.swift */,
+				DD0806BF2B2DE8B40081715F /* ThirdViewController.swift */,
+				DD0806C12B2DE8C00081715F /* FourthViewController.swift */,
+				DD0806C32B2DE8D20081715F /* FifthViewController.swift */,
 				DDCAEBE82B28A3CA008C8068 /* Main.storyboard */,
 				DDCAEBEB2B28A3CB008C8068 /* Assets.xcassets */,
 				DDCAEBED2B28A3CB008C8068 /* LaunchScreen.storyboard */,
@@ -138,9 +156,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0806C62B2DEE540081715F /* LoginViewController.swift in Sources */,
 				DDCAEBE72B28A3CA008C8068 /* ViewController.swift in Sources */,
 				DDCAEBE32B28A3CA008C8068 /* AppDelegate.swift in Sources */,
 				DDCAEBE52B28A3CA008C8068 /* SceneDelegate.swift in Sources */,
+				DD0806C22B2DE8C00081715F /* FourthViewController.swift in Sources */,
+				DD0806C42B2DE8D20081715F /* FifthViewController.swift in Sources */,
+				DD0806BE2B2DE8A70081715F /* SecondViewController.swift in Sources */,
+				DD0806C02B2DE8B40081715F /* ThirdViewController.swift in Sources */,
+				DD0806BC2B2DE8980081715F /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
