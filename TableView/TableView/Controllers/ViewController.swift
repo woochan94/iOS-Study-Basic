@@ -7,28 +7,27 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
-
+class ViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
     
-    
-    var moviesArray: [Movie] = [
-        Movie(movieImage: UIImage(named: "batman.png"), movieName: "배트맨", movieDescription: "배트맨이 출현하는 영화"),
-        Movie(movieImage: UIImage(named: "captaion.png"), movieName: "캡틴 아메리카", movieDescription: "캡틴 아메리카의 기원. 캡틴 아메리카는 어떻게 탄생하게 되었을까?"),
-        Movie(movieImage: UIImage(named: "ironman.png"), movieName: "아이언맨", movieDescription: "토니 스타크가 출현, 아이언맨이 탄생하게된 계기가 재미있는 영화"),
-        Movie(movieImage: UIImage(named: "thor.png"), movieName: "토르", movieDescription: "아스가르드의 후계자 토르가 지구에 오게되는 스토리"),
-    ]
+    var moviesArray: [Movie] = []
+    var movieDataManager = DataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        movieDataManager.makeMovieData()
+        moviesArray = movieDataManager.getMovieData()
     }
+}
+
+extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moviesArray.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -41,7 +40,4 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-
-
 }
-
