@@ -18,6 +18,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        tableView.delegate = self
+        
         movieDataManager.makeMovieData()
         moviesArray = movieDataManager.getMovieData()
     }
@@ -36,8 +38,24 @@ extension ViewController: UITableViewDataSource {
         cell.mainImageView.image = moviesArray[indexPath.row].movieImage
         cell.movieNameLabel.text = moviesArray[indexPath.row].movieName
         cell.descriptionLabel.text = moviesArray[indexPath.row].movieDescription
+        cell.selectionStyle = .none
         
         return cell
     }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toDetail", sender: indexPath)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail" {
+            let detailVC = segue.destination as! DetailViewController
+            
+            let indexPath = sender as! IndexPath
+            
+            detailVC.movieData = moviesArray[indexPath.row]
+        }
+    }
 }
