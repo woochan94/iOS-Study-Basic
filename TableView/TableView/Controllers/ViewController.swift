@@ -11,7 +11,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var moviesArray: [Movie] = []
     var movieDataManager = DataManager()
     
     override func viewDidLoad() {
@@ -19,25 +18,32 @@ class ViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        title = "영화목록"
         
         movieDataManager.makeMovieData()
-        moviesArray = movieDataManager.getMovieData()
+    }
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        movieDataManager.updateMovieData()
+        
+        self.tableView.reloadData()
     }
 }
 
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moviesArray.count
+        return movieDataManager.getMovieData().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        let array = movieDataManager.getMovieData()
         
-        cell.mainImageView.image = moviesArray[indexPath.row].movieImage
-        cell.movieNameLabel.text = moviesArray[indexPath.row].movieName
-        cell.descriptionLabel.text = moviesArray[indexPath.row].movieDescription
+        cell.mainImageView.image = array[indexPath.row].movieImage
+        cell.movieNameLabel.text = array[indexPath.row].movieName
+        cell.descriptionLabel.text = array[indexPath.row].movieDescription
         cell.selectionStyle = .none
         
         return cell
@@ -55,7 +61,7 @@ extension ViewController: UITableViewDelegate {
             
             let indexPath = sender as! IndexPath
             
-            detailVC.movieData = moviesArray[indexPath.row]
+            detailVC.movieData = movieDataManager.getMovieData()[indexPath.row]
         }
     }
 }

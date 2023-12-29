@@ -8,10 +8,10 @@
 import UIKit
 
 class DataManager {
-    private var moviewDataArray: [Movie] = []
+    private var movieDataArray: [Movie] = []
     
     func makeMovieData() {
-        moviewDataArray = [
+        movieDataArray = [
             Movie(movieImage: UIImage(named: "batman.png"), movieName: "배트맨", movieDescription: "배트맨이 출현하는 영화"),
             Movie(movieImage: UIImage(named: "captain.png"), movieName: "캡틴 아메리카", movieDescription: "캡틴 아메리카의 기원. 캡틴 아메리카는 어떻게 탄생하게 되었을까?"),
             Movie(movieImage: UIImage(named: "ironman.png"), movieName: "아이언맨", movieDescription: "토니 스타크가 출현, 아이언맨이 탄생하게된 계기가 재미있는 영화"),
@@ -25,7 +25,12 @@ class DataManager {
     }
     
     func getMovieData() -> [Movie] {
-        return moviewDataArray
+        return movieDataArray
+    }
+    
+    func updateMovieData() {
+        let movie = Movie(movieImage: UIImage(named: "spiderman2.png"), movieName: "스파이더맨2", movieDescription: "스파이더맨 시즌2")
+        movieDataArray.append(movie)
     }
     
 }
