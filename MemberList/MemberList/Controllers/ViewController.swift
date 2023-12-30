@@ -11,12 +11,29 @@ final class ViewController: UIViewController {
     
     private let tableView = UITableView()
     
+    private var memberListManager = MemberListManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
+        view.backgroundColor = .white
         
+        setupDatas()
+        setupTableView()
+        setupNavBar()
         setupTableViewConstraint()
+    }
+    
+    func setupNavBar() {
+        title = "회원 목록"
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
     func setupTableViewConstraint() {
@@ -31,16 +48,32 @@ final class ViewController: UIViewController {
         ])
     }
     
+    func setupTableView() {
+        tableView.dataSource = self
+        
+        tableView.rowHeight = 60
+        tableView.register(MemberTableViewCell.self, forCellReuseIdentifier: "MemberCell")
+    }
+    
+    func setupDatas() {
+        memberListManager.makeMembersListDatas()
+    }
+    
 }
 
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return memberListManager.getMemberList().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath) as! MemberTableViewCell
+        
+        cell.member = memberListManager[indexPath.row]
+        cell.selectionStyle = .none
+        
+        return cell
     }
     
 }
