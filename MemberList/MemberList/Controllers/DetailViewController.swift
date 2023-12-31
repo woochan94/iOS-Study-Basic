@@ -29,7 +29,23 @@ class DetailViewController: UIViewController {
     }
     
     @objc func buttonPressed() {
+        if member != nil {
+            member!.memberImage = detailView.mainImageView.image
+            
+            let memberId = Int(detailView.memberIdTextField.text!) ?? 0
+            member!.name = detailView.nameTextField.text ?? ""
+            member!.age = Int(detailView.ageTextField.text ?? "") ?? 0
+            member!.phone = detailView.phoneNumberTextField.text ?? ""
+            member!.address = detailView.addressTextField.text ?? ""
+            
+            detailView.member = member
+            
+            let index = navigationController!.viewControllers.count - 2
+            let vc = navigationController?.viewControllers[index] as! ViewController
+            vc.memberListManager.updateMemberInfo(index: memberId, member!)
+        }
         
+        self.navigationController?.popViewController(animated: true)
     }
 
 }

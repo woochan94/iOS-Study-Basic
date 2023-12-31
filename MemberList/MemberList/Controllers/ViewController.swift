@@ -11,7 +11,7 @@ final class ViewController: UIViewController {
     
     private let tableView = UITableView()
     
-    private var memberListManager = MemberListManager()
+    var memberListManager = MemberListManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,12 @@ final class ViewController: UIViewController {
         setupTableView()
         setupNavBar()
         setupTableViewConstraint()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tableView.reloadData()
     }
     
     func setupNavBar() {
