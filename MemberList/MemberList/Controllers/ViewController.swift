@@ -50,6 +50,7 @@ final class ViewController: UIViewController {
     
     func setupTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
         
         tableView.rowHeight = 60
         tableView.register(MemberTableViewCell.self, forCellReuseIdentifier: "MemberCell")
@@ -78,3 +79,11 @@ extension ViewController: UITableViewDataSource {
     
 }
 
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = DetailViewController()
+        detailViewController.member = memberListManager[indexPath.row]
+        
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
