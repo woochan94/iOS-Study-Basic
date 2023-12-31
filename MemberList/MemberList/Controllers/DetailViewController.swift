@@ -43,6 +43,8 @@ class DetailViewController: UIViewController {
             let index = navigationController!.viewControllers.count - 2
             let vc = navigationController?.viewControllers[index] as! ViewController
             vc.memberListManager.updateMemberInfo(index: memberId, member!)
+        } else {
+            
         }
         
         self.navigationController?.popViewController(animated: true)

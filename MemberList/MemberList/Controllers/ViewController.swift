@@ -13,6 +13,11 @@ final class ViewController: UIViewController {
     
     var memberListManager = MemberListManager()
     
+    lazy var navigationPlusButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(plusButtonPressed))
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +45,8 @@ final class ViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        self.navigationItem.rightBarButtonItem = self.navigationPlusButton 
     }
     
     func setupTableViewConstraint() {
@@ -64,6 +71,12 @@ final class ViewController: UIViewController {
     
     func setupDatas() {
         memberListManager.makeMembersListDatas()
+    }
+    
+    @objc func plusButtonPressed() {
+        let detailViewController = DetailViewController()
+        
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
     
 }
