@@ -229,17 +229,34 @@ class DetailView: UIView {
         return button
     }()
     
+    // 레이블 넓이 저장을 위한 속성
+    let labelWidth: CGFloat = 70
+    // 애니메이션을 위한 속성 선언
+    var stackViewTopConstraint: NSLayoutConstraint!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
         
-        self.addSubview(mainStackView)
+        setupStackView()
+        setupNotification()
         setupMemberIdTextField()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupStackView() {
+        self.addSubview(mainStackView)
+    }
+    
+    //MARK: - 노티피케이션 셋팅
+    func setupNotification() {
+        // 노티피케이션의 등록 ⭐️
+        // (OS차원에서 어떤 노티피케이션이 발생하는지 이미 정해져 있음)
+        NotificationCenter.default.addObserver(self, selector: #selector(moveUpAction), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(moveDownAction), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func setupMemberIdTextField() {
@@ -252,8 +269,10 @@ class DetailView: UIView {
     }
     
     func setupConstraint() {
+        stackViewTopConstraint = mainStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10)
+        
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
+            stackViewTopConstraint,
             mainStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             mainStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             mainStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
@@ -275,6 +294,31 @@ class DetailView: UIView {
             phoneNumberLabel.widthAnchor.constraint(equalToConstant: 70),
             addressLabel.widthAnchor.constraint(equalToConstant: 70)
         ])
+    }
+    
+    @objc func moveUpAction() {
+        print("test")
+        stackViewTopConstraint.constant = -20
+        UIView.animate(withDuration: 0.2) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    @objc func moveDownAction() {
+        stackViewTopConstraint.constant = 10
+        UIView.animate(withDuration: 0.2) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
+    }
+    
+    deinit {
+        // 노티피케이션의 등록 해제 (해제안하면 계속 등록될 수 있음) ⭐️
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
 }
