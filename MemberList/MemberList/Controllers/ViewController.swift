@@ -29,11 +29,11 @@ final class ViewController: UIViewController {
         setupTableViewConstraint()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.tableView.reloadData()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        self.tableView.reloadData()
+//    }
     
     func setupNavBar() {
         title = "회원 목록"
@@ -75,6 +75,7 @@ final class ViewController: UIViewController {
     
     @objc func plusButtonPressed() {
         let detailViewController = DetailViewController()
+    
         
         navigationController?.pushViewController(detailViewController, animated: true)
     }
@@ -101,8 +102,24 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailViewController = DetailViewController()
+        detailViewController.delegate = self 
+        
         detailViewController.member = memberListManager[indexPath.row]
         
         navigationController?.pushViewController(detailViewController, animated: true)
     }
+}
+
+extension ViewController: MemberDelegate {
+    
+    func addNewMember(_ member: Member) {
+        memberListManager.makeNewMember(member)
+        tableView.reloadData()
+    }
+    
+    func update(index: Int, _ member: Member) {
+        memberListManager.updateMemberInfo(index: index, member)
+        tableView.reloadData()
+    }
+    
 }
