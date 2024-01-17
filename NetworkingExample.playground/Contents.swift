@@ -20,10 +20,11 @@ struct Music: Codable {
 }
 
 
-func getMethod() {
+func getMethod(completionHandler: @escaping ([Music]?) -> Void) {
     // URL 구조체 만들기
     guard let url = URL(string: "https://itunes.apple.com/search?media=music&term=jazz") else {
         print("Error: cannot create URL")
+        completionHandler(nil)
         return
     }
     
@@ -34,23 +35,27 @@ func getMethod() {
     URLSession.shared.dataTask(with: request) { data, response, error in
         guard error == nil else {
             print("Error: \(error!)")
+            completionHandler(nil)
             return
         }
         
         guard let safeData = data else {
             print("Error: Did not receive data")
+            completionHandler(nil)
             return
         }
         
         guard let response = response as? HTTPURLResponse, (200 ..< 299) ~= response.statusCode else {
             print("Error HTTP request failed")
+            completionHandler(nil)
             return
         }
         
         do {
             let decoder = JSONDecoder()
-            let musicArray = try decoder.decode(MusicData.self, from: safeData)
-            dump(musicArray)
+            let musicData = try decoder.decode(MusicData.self, from: safeData)
+            completionHandler(musicData.results)
+            return
         } catch {
            print(error)
         }
@@ -58,5 +63,8 @@ func getMethod() {
     }.resume()
 }
 
-getMethod()
+getMethod { musicArray in
+    guard let array = musicArray else { return }
+    dump(array)
+}
 
