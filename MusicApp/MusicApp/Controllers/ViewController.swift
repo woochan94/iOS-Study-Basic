@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     
     var musicArrays: [Music] = []
     
+    var networkManager = NetworkManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct Music {
+struct MusicData: Codable {
+    let resultCount: Int
+    let results: [Music]
+}
+
+struct Music: Codable {
     let songName: String?
     let artistName: String?
     let albumName: String?

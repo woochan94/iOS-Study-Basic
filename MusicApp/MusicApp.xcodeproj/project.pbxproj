@@ -16,6 +16,7 @@
 		DDC8D2792B582F8A0009D2B9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8D2782B582F8A0009D2B9 /* Constants.swift */; };
 		DDC8D27B2B596A870009D2B9 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8D27A2B596A870009D2B9 /* MusicCell.swift */; };
 		DDC8D27D2B596FFF0009D2B9 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8D27C2B596FFF0009D2B9 /* Music.swift */; };
+		DDC8D2802B5979EA0009D2B9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8D27F2B5979EA0009D2B9 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		DDC8D2782B582F8A0009D2B9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DDC8D27A2B596A870009D2B9 /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 		DDC8D27C2B596FFF0009D2B9 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		DDC8D27F2B5979EA0009D2B9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				DDC8D25F2B58253C0009D2B9 /* AppDelegate.swift */,
 				DDC8D2612B58253C0009D2B9 /* SceneDelegate.swift */,
 				DDC8D2772B582F750009D2B9 /* Helpers */,
+				DDC8D27E2B5979D60009D2B9 /* Networking */,
 				DDC8D2762B582F680009D2B9 /* Models */,
 				DDC8D2752B582F5C0009D2B9 /* Views */,
 				DDC8D2732B582C670009D2B9 /* Controllers */,
@@ -106,6 +109,14 @@
 				DDC8D2782B582F8A0009D2B9 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DDC8D27E2B5979D60009D2B9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DDC8D27F2B5979EA0009D2B9 /* NetworkManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +193,7 @@
 				DDC8D27B2B596A870009D2B9 /* MusicCell.swift in Sources */,
 				DDC8D2642B58253C0009D2B9 /* ViewController.swift in Sources */,
 				DDC8D2602B58253C0009D2B9 /* AppDelegate.swift in Sources */,
+				DDC8D2802B5979EA0009D2B9 /* NetworkManager.swift in Sources */,
 				DDC8D2622B58253C0009D2B9 /* SceneDelegate.swift in Sources */,
 				DDC8D2792B582F8A0009D2B9 /* Constants.swift in Sources */,
 				DDC8D27D2B596FFF0009D2B9 /* Music.swift in Sources */,
