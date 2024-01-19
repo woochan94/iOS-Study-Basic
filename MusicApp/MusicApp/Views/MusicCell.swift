@@ -11,7 +11,11 @@ class MusicCell: UITableViewCell {
     
     static let cellId = Cell.musicCellIdentifier
     
-    var imageUrl: String?
+    var imageUrl: String? {
+        didSet {
+            loadImage()
+        }
+    }
     
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
@@ -80,9 +84,22 @@ class MusicCell: UITableViewCell {
         self.addSubview(mainStackView)
         NSLayoutConstraint.activate([
             mainStackView.leadingAnchor.constraint(equalTo: mainImageView.trailingAnchor, constant: 20),
-            mainStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            mainStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             mainStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
         ])
+    }
+    
+    private func loadImage() {
+        guard let urlString = self.imageUrl, let url = URL(string: urlString) else { return }
+        
+        DispatchQueue.global().async {
+            guard let data = try? Data(contentsOf: url) else { return }
+            guard urlString == url.absoluteString else { return }
+            
+            DispatchQueue.main.async {
+                self.mainImageView.image = UIImage(data: data)
+            }
+        }
     }
     
 }

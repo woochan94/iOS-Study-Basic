@@ -21,12 +21,18 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         
         setupNavigationBar()
+        setupSearchBar()
         setupTableView()
+        setupData()
     }
     
     func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Title"
+        self.title = "Music Search"
+    }
+    
+    func setupSearchBar() {
+        
     }
     
     func setupTableView() {
@@ -43,6 +49,20 @@ class ViewController: UIViewController {
             musicTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             musicTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    func setupData() {
+        networkManager.fetchMusic(searchTerm: "jazz") { result in
+            switch result {
+            case .success(let musicData):
+                self.musicArrays = musicData
+                DispatchQueue.main.async {
+                    self.musicTableView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
 }
