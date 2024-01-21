@@ -12,8 +12,8 @@ class ViewController: UIViewController {
     private let musicTableView = UITableView()
     
     var musicArrays: [Music] = []
-    
     var networkManager = NetworkManager.shared
+    let searchController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,10 @@ class ViewController: UIViewController {
     }
     
     func setupSearchBar() {
+        navigationItem.searchController = searchController
         
+        searchController.searchBar.delegate = self
+        searchController.searchBar.autocapitalizationType = .none
     }
     
     func setupTableView() {
@@ -95,4 +98,33 @@ extension ViewController: UITableViewDelegate {
         return 120
     }
     
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchController.searchBar.text else {
+            return
+        }
+        
+        self.musicArrays = []
+        
+        networkManager.fetchMusic(searchTerm: text) { result in
+            switch result {
+            case .success(let data):
+                self.musicArrays = data
+                DispatchQueue.main.async {
+                    self.musicTableView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        self.view.endEditing(true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.musicArrays = []
+        self.musicTableView.reloadData()
+        self.view.endEditing(true)
+    }
 }
