@@ -16,6 +16,8 @@
 		DD7C3F152C04A63D00988E85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD7C3F132C04A63D00988E85 /* Main.storyboard */; };
 		DD7C3F172C04A63F00988E85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7C3F162C04A63F00988E85 /* Assets.xcassets */; };
 		DD7C3F1A2C04A63F00988E85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD7C3F182C04A63F00988E85 /* LaunchScreen.storyboard */; };
+		DDA44C8A2C08A56D00D8C7A4 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA44C892C08A56D00D8C7A4 /* OrderViewModel.swift */; };
+		DDA44C8C2C08AD2E00D8C7A4 /* AddCoffeeOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA44C8B2C08AD2E00D8C7A4 /* AddCoffeeOrderViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		DD7C3F162C04A63F00988E85 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD7C3F192C04A63F00988E85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD7C3F1B2C04A63F00988E85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDA44C892C08A56D00D8C7A4 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
+		DDA44C8B2C08AD2E00D8C7A4 /* AddCoffeeOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCoffeeOrderViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 			children = (
 				DD3778152C04C93B000996AE /* Models */,
 				DD37780C2C04AAA3000996AE /* Controllers */,
+				DDA44C882C08A55E00D8C7A4 /* ViewModels */,
 				DD3778112C04B3DF000996AE /* Services */,
 				DD7C3F0D2C04A63D00988E85 /* AppDelegate.swift */,
 				DD7C3F0F2C04A63D00988E85 /* SceneDelegate.swift */,
@@ -98,6 +103,15 @@
 				DD7C3F1B2C04A63F00988E85 /* Info.plist */,
 			);
 			path = HotCoffee;
+			sourceTree = "<group>";
+		};
+		DDA44C882C08A55E00D8C7A4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DDA44C892C08A56D00D8C7A4 /* OrderViewModel.swift */,
+				DDA44C8B2C08AD2E00D8C7A4 /* AddCoffeeOrderViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,10 +186,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD3778172C04C94A000996AE /* Order.swift in Sources */,
+				DDA44C8C2C08AD2E00D8C7A4 /* AddCoffeeOrderViewModel.swift in Sources */,
 				DD7C3F0E2C04A63D00988E85 /* AppDelegate.swift in Sources */,
 				DD7C3F102C04A63D00988E85 /* SceneDelegate.swift in Sources */,
 				DD37780E2C04AC07000996AE /* OrdersTableViewController.swift in Sources */,
 				DD3778132C04B3F5000996AE /* WebService.swift in Sources */,
+				DDA44C8A2C08A56D00D8C7A4 /* OrderViewModel.swift in Sources */,
 				DD3778102C04AC2C000996AE /* AddOrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
